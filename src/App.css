@@ -2,19 +2,41 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
+  
   background-color: #282c34;
+  min-height: 100vh;
+  display:block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  position: relative;
+}
+
+.switch{
+  display: fixed;
+  position: relative;
+  bottom: -200px;
+}
+
+.textSwitch{
+  display: fixed;
+  position: relative;
+  bottom: -150px;
+}
+
+#dark .App-header{
+  background-color: #282c34;
+}
+
+#light .App-header{
+  background-color: rgb(139, 81, 39);
+}
+
+.one-header {
+  background-color: rgb(29, 29, 156);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +46,104 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* #light .switch label {
+color: black;
+
+} */
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bulb {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: #666;
+  border-radius: 50%;
+  transform: rotate(180deg);
+  margin: -50px auto 0;
+}
+
+#light .bulb{
+  background: #fff;
+  box-shadow: 0 0 30px #fff,
+  0 0 60px #fff,
+  0 0 900px #fff,
+  0 0 120px #fff
+
+}
+
+.bulb::before{
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 22.5px;
+  width: 35px;
+  height: 29px;
+  background: #666;
+
+  border-top: 30px solid #000;
+  border-radius: 10px;
+  
+
+}
+
+#light .bulb::before{
+  background: #fff;
+  
+}
+
+#light .bulb::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border-radius: 50%;
+  filter: blur(40px);
+
+}
+
+.bulb span {
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+
+}
+
+#light .bulb span{
+  box-shadow: 20px 20px 0 10px #fff;
+}
+
+.bulb span:nth-child(1){
+  top: -16px;
+  left: -4px;
+  transform: rotate(342deg);
+  border-bottom-right-radius: 40px;
+  box-shadow: 20px 20px 0 10px #666;
+}
+
+.bulb span:nth-child(2){
+  top: -16px;
+  right: -4px;
+  transform: rotate(17deg);
+  border-bottom-left-radius: 40px;
+  box-shadow: -20px 20px 0 10px #666;
+}
+
+#light .bulb span:nth-child(1){
+  box-shadow: 20px 20px 0 10px #fff;
+}
+
+#light .bulb span:nth-child(2){
+  box-shadow: -20px 20px 0 10px #fff;
 }
